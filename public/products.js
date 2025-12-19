@@ -14,13 +14,17 @@ function displayProducts(prods) {
     const div = document.createElement('div');
     div.className = 'product-card animate-fade-in';
     div.innerHTML = `
-      <img src="${p.image || 'https://via.placeholder.com/200x150?text=No+Image'}" alt="${escapeHtml(p.name)}" />
-      <h3>${escapeHtml(p.name)}</h3>
-      <p class="category">${escapeHtml(p.category)}</p>
-      <p class="weight">${escapeHtml(p.weight || '1kg')}</p>
-      <p class="description">${escapeHtml(p.description || '')}</p>
-      <p class="price">$${p.price.toFixed(2)}</p>
-      <button class="add-to-cart animate-bounce" data-id="${p._id}">Add to Cart</button>
+      <div class="product-image">
+        <img src="${p.image || 'https://via.placeholder.com/250x200?text=No+Image'}" alt="${escapeHtml(p.name)}" />
+      </div>
+      <div class="product-info">
+        <h3>${escapeHtml(p.name)}</h3>
+        <p class="category">${escapeHtml(p.category)}</p>
+        <p class="weight">${escapeHtml(p.weight || '1kg')}</p>
+        <p class="stock">Stock: ${p.stock || 10}</p>
+        <p class="price">$${p.price.toFixed(2)}</p>
+        <button class="add-to-cart animate-bounce" data-id="${p._id}">Add to Cart</button>
+      </div>
     `;
     list.appendChild(div);
   });
@@ -77,10 +81,11 @@ document.getElementById('productForm').addEventListener('submit', async (e) => {
   const price = document.getElementById('price').value;
   const category = document.getElementById('category').value.trim();
   const weight = document.getElementById('weight').value.trim();
+  const stock = document.getElementById('stock').value;
   const description = document.getElementById('description').value.trim();
   const image = document.getElementById('image').value.trim();
   if (!name || !price || !category) return alert('Name, price, and category are required');
-  await fetch(api, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name, price: Number(price), category, weight, description, image})});
+  await fetch(api, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name, price: Number(price), category, weight, stock: Number(stock), description, image})});
   e.target.reset();
   fetchProducts();
 });

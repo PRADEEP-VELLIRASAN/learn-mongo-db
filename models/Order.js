@@ -7,8 +7,10 @@ const orderSchema = new mongoose.Schema({
     price: { type: Number, required: true }
   }],
   total: { type: Number, required: true },
-  customerName: { type: String },
-  customerEmail: { type: String }
+  customerName: { type: String, required: true },
+  customerEmail: { type: String, required: true },
+  customerAddress: { type: String, required: true },
+  customerPhone: { type: String, required: true }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);

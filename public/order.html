@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Online Grocery Shop - Order</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo animate-slide-left">GroceryShop</h1>
+      <nav class="animate-slide-right">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="order-main animate-fade-in">
+    <div class="container">
+      <h2>Place Your Order</h2>
+
+      <div class="order-summary animate-slide-in">
+        <h3>Order Summary</h3>
+        <ul id="orderItems"></ul>
+        <div class="order-total">Total: $<span id="orderTotal">0.00</span></div>
+      </div>
+
+      <form id="orderForm" class="order-form animate-slide-right">
+        <h3>Customer Details</h3>
+        <input id="customerName" placeholder="Full Name" required />
+        <input id="customerEmail" placeholder="Email" type="email" required />
+        <input id="customerAddress" placeholder="Delivery Address" required />
+        <input id="customerPhone" placeholder="Phone Number" type="tel" required />
+        <button type="submit" class="btn-primary animate-bounce">Confirm Order</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer animate-fade-in">
+    <div class="container">
+      <p>&copy; 2025 GroceryShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>

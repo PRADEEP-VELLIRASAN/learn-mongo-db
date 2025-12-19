@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
 // POST create
 router.post('/', async (req, res) => {
   try {
-    const { name, price, category, description, image, weight } = req.body;
+    const { name, price, category, description, image, weight, stock } = req.body;
     if (!name || !price || !category) return res.status(400).json({ error: 'Name, price, and category are required' });
-    const product = new Product({ name, price: Number(price), category, description, image, weight });
+    const product = new Product({ name, price: Number(price), category, description, image, weight, stock: stock ? Number(stock) : 10 });
     await product.save();
     res.status(201).json(product);
   } catch (err) {
@@ -29,8 +29,8 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, price, category, description, image, weight } = req.body;
-    const updated = await Product.findByIdAndUpdate(id, { name, price: Number(price), category, description, image, weight }, { new: true });
+    const { name, price, category, description, image, weight, stock } = req.body;
+    const updated = await Product.findByIdAndUpdate(id, { name, price: Number(price), category, description, image, weight, stock: stock ? Number(stock) : undefined }, { new: true });
     if (!updated) return res.status(404).json({ error: 'Product not found' });
     res.json(updated);
   } catch (err) {

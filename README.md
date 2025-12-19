@@ -1,8 +1,17 @@
-# Student CRUD (HTML/CSS/JS, Node, MongoDB)
+# Online Grocery Shop (HTML/CSS/JS, Node, MongoDB)
 
-Simple full-stack project to store student data.
+A full-stack online grocery shop with product listing, cart functionality, search, categories, and order management.
 
-Run locally
+## Features
+- Product catalog with categories
+- Search and filter products
+- Shopping cart with local storage
+- Order placement and management
+- Admin panel to add products (Ctrl+A to toggle)
+- Admin panel to view orders (Ctrl+O to toggle)
+- Responsive design
+
+## Run locally
 
 1. Install dependencies:
 

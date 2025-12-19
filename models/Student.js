@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-const studentSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  age: { type: Number },
-  grade: { type: String },
-  email: { type: String }
+  price: { type: Number, required: true },
+  category: { type: String, required: true },
+  description: { type: String },
+  image: { type: String } // URL to image
 }, { timestamps: true });
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('Product', productSchema);

@@ -6,7 +6,8 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required: true },
   description: { type: String },
   image: { type: String }, // URL to image
-  weight: { type: String, default: '1kg' } // e.g., '500g', '2kg'
+  weight: { type: String, default: '1kg' }, // e.g., '500g', '2kg'
+  stock: { type: Number, default: 10 } // Quantity in stock
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

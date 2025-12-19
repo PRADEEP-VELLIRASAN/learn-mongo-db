@@ -5,7 +5,8 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   category: { type: String, required: true },
   description: { type: String },
-  image: { type: String } // URL to image
+  image: { type: String }, // URL to image
+  weight: { type: String, default: '1kg' } // e.g., '500g', '2kg'
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

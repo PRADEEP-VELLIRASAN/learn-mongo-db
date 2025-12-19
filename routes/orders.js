@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
 // POST create order
 router.post('/', async (req, res) => {
   try {
-    const { items, total, customerName, customerEmail } = req.body;
-    if (!items || !total) return res.status(400).json({ error: 'Items and total are required' });
-    const order = new Order({ items, total, customerName, customerEmail });
+    const { items, total, customerName, customerEmail, customerAddress, customerPhone } = req.body;
+    if (!items || !total || !customerName || !customerEmail || !customerAddress || !customerPhone) return res.status(400).json({ error: 'All fields are required' });
+    const order = new Order({ items, total, customerName, customerEmail, customerAddress, customerPhone });
     await order.save();
     res.status(201).json(order);
   } catch (err) {

@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #28a745 100%);
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -187,6 +187,13 @@ nav a:hover::before {
   100% { transform: translateY(-100px); }
 }
 
+@keyframes ecoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float { animation: ecoFloat 3s ease-in-out infinite; }
+
 .hero h2 {
   font-size: 48px;
   margin-bottom: 20px;
@@ -327,6 +334,65 @@ nav a:hover::before {
   height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  filter: sepia(10%) contrast(1.1) brightness(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  gap: 10px;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.quick-view-btn, .wishlist-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-view-btn {
+  background: #667eea;
+}
+
+.quick-view-btn:hover {
+  background: #5a6fd8;
+}
+
+.wishlist-btn {
+  background: #f5576c;
+}
+
+.wishlist-btn:hover {
+  background: #e74c3c;
+}
+
+.eco-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  animation: ecoFloat 3s ease-in-out infinite;
 }
 
 .product-card:hover .product-image img {
@@ -350,6 +416,12 @@ nav a:hover::before {
   margin-bottom: 5px;
 }
 
+.rating {
+  color: #ffd700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
 .product-info .weight {
   color: #666;
   font-size: 14px;
@@ -360,6 +432,13 @@ nav a:hover::before {
   color: #28a745;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.product-info .description {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 .product-info .price {
@@ -717,4 +796,126 @@ nav a:hover::before {
   #productForm {
     grid-template-columns: 1fr;
   }
+}
+
+/* Quick View Modal */
+.quick-view-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-image {
+  flex: 1;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-info .category {
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.modal-info .weight {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.modal-info .stock {
+  color: #28a745;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.modal-info .description {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.modal-info .price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f5576c;
+  margin-bottom: 20px;
+}
+
+.add-to-cart-modal {
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.add-to-cart-modal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #000;
 }

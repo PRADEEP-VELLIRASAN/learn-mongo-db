@@ -27,6 +27,12 @@
         <select id="categoryFilter">
           <option value="">All Categories</option>
         </select>
+        <select id="sortFilter">
+          <option value="">Sort by</option>
+          <option value="name">Name</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
       </div>
 
       <div id="addProductForm" class="admin-form" style="display:none;">
@@ -41,6 +47,10 @@
           <input id="image" placeholder="Image URL" />
           <button type="submit">Add Product</button>
         </form>
+      </div>
+
+      <div id="productList" class="product-grid">
+        <!-- Products will be loaded here -->
       </div>
 
   <footer class="footer animate-fade-in">

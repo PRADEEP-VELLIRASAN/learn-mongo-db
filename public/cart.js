@@ -37,7 +37,7 @@ document.getElementById('cartItems').addEventListener('click', (e) => {
 
 document.getElementById('checkoutBtn').addEventListener('click', () => {
   if (cart.length === 0) {
-    alert('Cart is empty!');
+    showToast('Cart is empty!', 'error');
     return;
   }
   window.location.href = 'order.html';

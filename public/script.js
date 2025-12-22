@@ -28,4 +28,25 @@ function escapeHtml(str){
   return str.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 }
 
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `
+    <span>${message}</span>
+    <span class="close-toast">&times;</span>
+  `;
+  container.appendChild(toast);
+
+  toast.querySelector('.close-toast').addEventListener('click', () => {
+    toast.remove();
+  });
+
+  setTimeout(() => {
+    if (toast.parentNode) {
+      toast.remove();
+    }
+  }, 3000);
+}
+
 updateCartCount();

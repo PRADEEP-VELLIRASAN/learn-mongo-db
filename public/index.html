@@ -19,12 +19,35 @@
   </header>
 
   <main class="home-main">
-    <section class="hero animate-fade-in">
-      <div class="container">
-        <h2>Welcome to GroceryShop</h2>
-        <p>Fresh groceries delivered to your door</p>
-        <a href="products.html" class="btn-primary animate-bounce">Shop Now</a>
+    <section class="hero-carousel">
+      <div class="carousel-container">
+        <div class="carousel-slide active animate-fade-in">
+          <div class="container">
+            <h2>Welcome to GroceryShop</h2>
+            <p>Fresh groceries delivered to your door</p>
+            <a href="products.html" class="btn-primary animate-bounce">Shop Now</a>
+          </div>
+          <img src="https://loremflickr.com/1200/400/grocery" alt="Fresh Groceries" class="hero-bg" />
+        </div>
+        <div class="carousel-slide animate-fade-in">
+          <div class="container">
+            <h2>Organic & Fresh</h2>
+            <p>Quality products from local farms</p>
+            <a href="products.html?category=Fruits" class="btn-primary animate-bounce">Explore Fruits</a>
+          </div>
+          <img src="https://loremflickr.com/1200/400/fruits" alt="Organic Fruits" class="hero-bg" />
+        </div>
+        <div class="carousel-slide animate-fade-in">
+          <div class="container">
+            <h2>Free Delivery</h2>
+            <p>Order over $50 and get free delivery</p>
+            <a href="products.html" class="btn-primary animate-bounce">Start Shopping</a>
+          </div>
+          <img src="https://loremflickr.com/1200/400/delivery" alt="Free Delivery" class="hero-bg" />
+        </div>
       </div>
+      <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+      <button class="carousel-btn next" id="nextBtn">&#10095;</button>
     </section>
 
     <section class="offers animate-slide-right">
@@ -60,6 +83,40 @@
     </div>
   </footer>
 
+  <div class="toast-container" id="toastContainer"></div>
+
   <script src="script.js"></script>
+  <script>
+    // Carousel functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto slide
+    setInterval(nextSlide, 5000);
+  </script>
 </body>
 </html>

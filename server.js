@@ -27,19 +27,19 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     if (count === 0) {
       const sampleProducts = [
         // Fruits
-        { name: 'Organic Apples', price: 3.99, category: 'Fruits', description: 'Fresh organic red apples', weight: '1kg', stock: 50, image: 'https://via.placeholder.com/250x200?text=Apples' },
-        { name: 'Bananas', price: 0.99, category: 'Fruits', description: 'Ripe yellow bananas', weight: '1kg', stock: 40, image: 'https://via.placeholder.com/250x200?text=Bananas' },
-        { name: 'Oranges', price: 2.99, category: 'Fruits', description: 'Sweet navel oranges', weight: '1kg', stock: 35, image: 'https://via.placeholder.com/250x200?text=Oranges' },
-        { name: 'Strawberries', price: 4.99, category: 'Fruits', description: 'Fresh strawberries', weight: '250g', stock: 28, image: 'https://via.placeholder.com/250x200?text=Strawberries' },
-        { name: 'Grapes', price: 3.49, category: 'Fruits', description: 'Seedless green grapes', weight: '500g', stock: 30, image: 'https://via.placeholder.com/250x200?text=Grapes' },
-        { name: 'Pineapple', price: 2.99, category: 'Fruits', description: 'Sweet tropical pineapple', weight: '1pc', stock: 15, image: 'https://via.placeholder.com/250x200?text=Pineapple' },
+        { name: 'Organic Apples', price: 3.99, category: 'Fruits', description: 'Fresh organic red apples', weight: '1kg', stock: 50, image: 'https://loremflickr.com/250/200/apples' },
+        { name: 'Bananas', price: 0.99, category: 'Fruits', description: 'Ripe yellow bananas', weight: '1kg', stock: 40, image: 'https://loremflickr.com/250/200/bananas' },
+        { name: 'Oranges', price: 2.99, category: 'Fruits', description: 'Sweet navel oranges', weight: '1kg', stock: 35, image: 'https://loremflickr.com/250/200/oranges' },
+        { name: 'Strawberries', price: 4.99, category: 'Fruits', description: 'Fresh strawberries', weight: '250g', stock: 28, image: 'https://loremflickr.com/250/200/strawberries' },
+        { name: 'Grapes', price: 3.49, category: 'Fruits', description: 'Seedless green grapes', weight: '500g', stock: 30, image: 'https://loremflickr.com/250/200/grapes' },
+        { name: 'Pineapple', price: 2.99, category: 'Fruits', description: 'Sweet tropical pineapple', weight: '1pc', stock: 15, image: 'https://loremflickr.com/250/200/pineapple' },
 
         // Vegetables
-        { name: 'Spinach', price: 1.49, category: 'Vegetables', description: 'Fresh green spinach leaves', weight: '200g', stock: 60, image: 'https://via.placeholder.com/250x200?text=Spinach' },
-        { name: 'Tomatoes', price: 2.29, category: 'Vegetables', description: 'Juicy red tomatoes', weight: '500g', stock: 55, image: 'https://via.placeholder.com/250x200?text=Tomatoes' },
-        { name: 'Broccoli', price: 1.99, category: 'Vegetables', description: 'Crisp broccoli florets', weight: '300g', stock: 30, image: 'https://via.placeholder.com/250x200?text=Broccoli' },
-        { name: 'Carrots', price: 1.29, category: 'Vegetables', description: 'Crunchy orange carrots', weight: '500g', stock: 50, image: 'https://via.placeholder.com/250x200?text=Carrots' },
-        { name: 'Potatoes', price: 1.99, category: 'Vegetables', description: 'Fresh potatoes', weight: '2kg', stock: 45, image: 'https://via.placeholder.com/250x200?text=Potatoes' },
+        { name: 'Spinach', price: 1.49, category: 'Vegetables', description: 'Fresh green spinach leaves', weight: '200g', stock: 60, image: 'https://loremflickr.com/250/200/spinach' },
+        { name: 'Tomatoes', price: 2.29, category: 'Vegetables', description: 'Juicy red tomatoes', weight: '500g', stock: 55, image: 'https://loremflickr.com/250/200/tomatoes' },
+        { name: 'Broccoli', price: 1.99, category: 'Vegetables', description: 'Crisp broccoli florets', weight: '300g', stock: 30, image: 'https://loremflickr.com/250/200/broccoli' },
+        { name: 'Carrots', price: 1.29, category: 'Vegetables', description: 'Crunchy orange carrots', weight: '500g', stock: 50, image: 'https://loremflickr.com/250/200/carrots' },
+        { name: 'Potatoes', price: 1.99, category: 'Vegetables', description: 'Fresh potatoes', weight: '2kg', stock: 45, image: 'https://loremflickr.com/250/200/potatoes' },
         { name: 'Onions', price: 1.49, category: 'Vegetables', description: 'Yellow onions', weight: '1kg', stock: 40, image: 'https://via.placeholder.com/250x200?text=Onions' },
         { name: 'Lettuce', price: 1.79, category: 'Vegetables', description: 'Crisp romaine lettuce', weight: '1head', stock: 25, image: 'https://via.placeholder.com/250x200?text=Lettuce' },
         { name: 'Cucumbers', price: 1.99, category: 'Vegetables', description: 'Fresh cucumbers', weight: '500g', stock: 35, image: 'https://via.placeholder.com/250x200?text=Cucumbers' },

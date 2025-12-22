@@ -1,8 +1,11 @@
 let products = [];
 
 async function fetchProducts(){
+  document.getElementById('loading').style.display = 'block';
+  document.getElementById('productList').innerHTML = '';
   const res = await fetch(api);
   products = await res.json();
+  document.getElementById('loading').style.display = 'none';
   displayProducts(products);
   populateCategories();
 }
@@ -12,7 +15,7 @@ function displayProducts(prods) {
   list.innerHTML = '';
   prods.forEach(p => {
     const div = document.createElement('div');
-    div.className = 'product-card animate-fade-in';
+    div.className = 'product-card animate-zoom-in';
     const rating = Math.floor(Math.random() * 5) + 1; // Random rating for demo
     const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
     div.innerHTML = `
@@ -86,7 +89,7 @@ function showQuickView(product) {
       cart.push({ ...product, quantity: 1 });
     }
     updateCartDisplay();
-    alert('Added to cart!');
+    showToast(`${product.name} added to cart!`);
     modal.remove();
   });
 
@@ -133,7 +136,7 @@ document.getElementById('productList').addEventListener('click', (e) => {
         cart.push({ ...product, quantity: 1 });
       }
       updateCartDisplay();
-      alert('Added to cart!');
+      showToast(`${product.name} added to cart!`);
     }
   } else if (e.target.matches('.quick-view-btn')) {
     const id = e.target.dataset.id;

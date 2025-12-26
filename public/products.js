@@ -14,7 +14,7 @@ function displayProducts(prods) {
   const list = document.getElementById('productList');
   list.innerHTML = '';
   prods.forEach(p => {
-    const div = document.createElement('div');
+          const div = document.createElement('div');
     div.className = 'product-card animate-zoom-in';
     const rating = Math.floor(Math.random() * 5) + 1; // Random rating for demo
     const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
